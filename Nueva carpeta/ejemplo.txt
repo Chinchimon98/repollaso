@@ -1,0 +1,15 @@
+CREATE TABLE Categoria (
+  idCategoria INT NOT NULL,
+  nombre VARCHAR(200) NOT NULL,
+  PRIMARY KEY (idCategoria))
+
+CREATE TABLE Producto (
+  idProducto INT NOT NULL,
+  nombre VARCHAR(200) NOT NULL,
+  precio DECIMAL(10,4) NOT NULL,
+  idCategoria INT NOT NULL,
+  area CHAR(1) NOT NULL,
+  PRIMARY KEY (idProducto),
+  CONSTRAINT fk_idCategoria
+    FOREIGN KEY (idCategoria)
+    REFERENCES Categoria (idCategoria))
